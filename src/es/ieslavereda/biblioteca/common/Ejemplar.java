@@ -16,7 +16,9 @@ public class Ejemplar extends Libro {
 	
 	}
 	
-	public ArrayList add()
+	public void addPrestado(Persona p) {
+		aQuien.add(p);
+	}
 	
 	
 	

@@ -7,8 +7,8 @@ public class Persona {
 	private String dni;
 
 
-	Ejemplar e = new Ejemplar("Yo","Quijote",2314);
+	Ejemplar libro = new Ejemplar("Yo","Quijote",2314);
 	
-	e.add()
+	libro.
 }
 
