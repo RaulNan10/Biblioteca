@@ -2,27 +2,32 @@ package es.ieslavereda.biblioteca.common;
 
 import java.util.ArrayList;
 
-public class Ejemplar extends Libro {
+public class Ejemplar {
 
-	private boolean prestado = false;
-	private ArrayList<Persona> aQuien = null;
-	public static int cantidad = 0;
-	
-	public Ejemplar(String autor, String titulo, int isbn) {
-		super(autor, titulo, isbn);
-		this.prestado = prestado;
-		this.aQuien = aQuien;
-		this.cantidad = cantidad;
-	
+	private Persona aQuien;
+	private int codigo;
+	private Libro l;
+
+	public Ejemplar(Libro l, int codigo) {
+		this.l = l;
+		this.aQuien = null;
+		this.codigo = codigo;
+
 	}
-	
-	public void addPrestado(Persona p) {
-		aQuien.add(p);
+
+	@Override
+	public String toString() {
+		return "Ejemplar [aQuien=" + aQuien + ", codigo=" + codigo;
 	}
+
+	public Persona getaQuien() {
+		return aQuien;
+	}
+
+	public int getCodigo() {
+		return codigo;
+	}
+
 	
-	
-	
-	
-	
-	
+
 }
