@@ -62,7 +62,7 @@ public class Biblioteca {
 		return null;
 	}
 
-	// Añade ejemplares a un libro a traves de su isbn
+	// Aï¿½ade ejemplares a un libro a traves de su isbn
 	public void addEjemplares(int n, int ejemplares) {
 		buscarPorISBN(n).addEjemplares(ejemplares);
 	}
@@ -100,12 +100,21 @@ public class Biblioteca {
 
 	}
 	
+	
 	public void ordenarPersonaNombre() {
 		 Collections.sort(socios,new CompararSociosPorNombre());
 	}
 	
 	public void ordenarPersonaLibros() {
 		 Collections.sort(socios,new CompararSociosPorCantidadLibros());
+	}
+	
+	public void ordenarLibrosPorTitulo() {
+		Collections.sort(libros, new OrdenarLibrosPorTitulo());
+	}
+	
+	public void ordenarLibrosPorEjemplares() {
+		Collections.sort(libros, new OrdenarLibrosPorEjemplares());
 	}
 	
 

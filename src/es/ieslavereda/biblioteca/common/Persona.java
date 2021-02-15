@@ -26,6 +26,14 @@ public class Persona {
 		l.buscarPorCodigo(codigo).setaQuien(this);
 	}
 
+	public Ejemplar buscarPorLibro(Libro l, int codigo) {
+		for (Ejemplar e : librosPersona) {
+			if (e.getCodigo() == codigo && e.getLibro().equals(l))
+				return e;
+		}
+		return null;
+	}
+
 	public void devolverPrestado(Libro l, int codigo) {
 		l.buscarPorCodigo(codigo).setaQuien(null);
 		librosPersona.remove(l.buscarPorCodigo(codigo));
@@ -71,7 +79,7 @@ public class Persona {
 
 	@Override
 	public String toString() {
-		return nombre + " " + apellidos  + "\t" + " | " + dni + "\n";
+		return nombre + " " + apellidos + "\t" + " | " + dni + "\n";
 	}
 
 }

@@ -27,9 +27,23 @@ public class Ejemplar {
 	public int getCodigo() {
 		return codigo;
 	}
-
+	
+	public Libro getLibro() {
+		return l;
+	}
+	
 	public void setaQuien(Persona aQuien) {
 		this.aQuien = aQuien;
+	}
+	
+	public void devolver() {
+		if(this.aQuien!=null) {
+			aQuien.buscarPorLibro(this.l, codigo);
+			aQuien=null;
+			
+		}
+			
+		
 	}
 
 	

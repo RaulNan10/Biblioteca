@@ -31,10 +31,13 @@ public class Libro {
 	public int getDisponibles() {
 		return disponibles;
 	}
-	
 
 	public String getTitulo() {
 		return titulo;
+	}
+
+	public String getAutor() {
+		return autor;
 	}
 
 	public int getIsbn() {
@@ -58,7 +61,8 @@ public class Libro {
 	public String getLista(Libro l) {
 		String txt = "";
 		for (Ejemplar e : lista) {
-			txt += "Titulo: " + l.titulo + "|" + " Prestado: " + e.getaQuien() + "| " + "Codigo:" + e.getCodigo() + "\n";
+			txt += "Titulo: " + l.titulo + "|" + " Prestado: " + e.getaQuien() + "| " + "Codigo:" + e.getCodigo()
+					+ "\n";
 		}
 		return txt;
 	}
@@ -73,7 +77,23 @@ public class Libro {
 			addEjemplar();
 
 	}
-	
-	
+
+	public void devolverEjemplar(int codigo) {
+		this.buscarPorCodigo(codigo).devolver();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		Libro l;
+		if (obj instanceof Libro) {
+			l = (Libro)obj;
+			if (l.getIsbn()==this.getIsbn()) {
+				return true;
+			}
+		}
+		return false;
+		
+		
+	}
 
 }
