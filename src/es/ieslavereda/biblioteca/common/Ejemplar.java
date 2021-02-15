@@ -17,7 +17,7 @@ public class Ejemplar {
 
 	@Override
 	public String toString() {
-		return "Ejemplar [aQuien=" + aQuien + ", codigo=" + codigo;
+		return "Titulo: " + l.getTitulo() + " Ejemplar: " + codigo;
 	}
 
 	public Persona getaQuien() {
@@ -28,6 +28,11 @@ public class Ejemplar {
 		return codigo;
 	}
 
+	public void setaQuien(Persona aQuien) {
+		this.aQuien = aQuien;
+	}
+
+	
 	
 
 }

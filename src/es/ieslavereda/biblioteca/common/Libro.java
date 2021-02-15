@@ -16,7 +16,7 @@ public class Libro {
 		this.titulo = titulo;
 		this.isbn = isbn;
 		lista = new ArrayList<Ejemplar>();
-		this.disponibles = 0;
+		this.disponibles = lista.size();
 
 	}
 
@@ -24,28 +24,41 @@ public class Libro {
 		return lista.size();
 	}
 
-	public void setDisponibles(int disvoidponibles) {
+	public void setDisponibles(int disponibles) {
 		this.disponibles = disponibles;
 	}
 
 	public int getDisponibles() {
 		return disponibles;
 	}
+	
+
+	public String getTitulo() {
+		return titulo;
+	}
 
 	public int getIsbn() {
 		return isbn;
 	}
 
-	@Override
-	public String toString() {
-		return "Libro [autor=" + autor + ", titulo=" + titulo + ", isbn=" + isbn + ", lista=" + lista + ", disponibles="
-				+ disponibles + "]" + "\n";
+	public Ejemplar buscarPorCodigo(int codigo) {
+		for (Ejemplar e : lista) {
+			if (e.getCodigo() == codigo)
+				return e;
+		}
+		return null;
 	}
 
+	@Override
+	public String toString() {
+		return "Autor: " + autor + ", titulo: " + titulo + ", isbn: " + isbn + "\n";
+	}
+
+	// Devuelve la lista de ejemplares de un libro(l)
 	public String getLista(Libro l) {
 		String txt = "";
 		for (Ejemplar e : lista) {
-			txt += "Titulo: " + l.titulo + " Prestado: " + e.getaQuien() + "| " + "Codigo:" + e.getCodigo() + "\n";
+			txt += "Titulo: " + l.titulo + "|" + " Prestado: " + e.getaQuien() + "| " + "Codigo:" + e.getCodigo() + "\n";
 		}
 		return txt;
 	}
@@ -54,13 +67,13 @@ public class Libro {
 		this.lista.add(new Ejemplar(this, lista.size()));
 		disponibles++;
 	}
-	
-
 
 	public void addEjemplares(int cantidad) {
 		for (int i = 0; i < cantidad; i++)
 			addEjemplar();
 
 	}
+	
+	
 
 }

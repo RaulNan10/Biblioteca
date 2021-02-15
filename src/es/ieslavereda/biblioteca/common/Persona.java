@@ -1,4 +1,5 @@
 package es.ieslavereda.biblioteca.common;
+
 import java.util.*;
 
 public class Persona {
@@ -9,7 +10,7 @@ public class Persona {
 	private int cantidadLibros;
 	private boolean socio;
 	private ArrayList<Ejemplar> librosPersona;
-	
+
 	public Persona(String nombre, String apellidos, String dni) {
 		super();
 		this.nombre = nombre;
@@ -17,22 +18,43 @@ public class Persona {
 		this.dni = dni;
 		this.cantidadLibros = cantidadLibros;
 		this.socio = false;
-		this.librosPersona = null;
+		this.librosPersona = new ArrayList<Ejemplar>();
 	}
-	
-	public void addEjemplar(Libro l, int codigo) {
-		librosPersona.add(new Ejemplar(l,codigo));
+
+	public void addPrestado(Libro l, int codigo) {
+		librosPersona.add(l.buscarPorCodigo(codigo));
+		l.buscarPorCodigo(codigo).setaQuien(this);
 	}
-	
-	
+
+	public void devolverPrestado(Libro l, int codigo) {
+		l.buscarPorCodigo(codigo).setaQuien(null);
+		librosPersona.remove(l.buscarPorCodigo(codigo));
+	}
+
 	public boolean serSocio() {
 		socio = true;
-		
-		return socio; 
+
+		return socio;
 	}
 
 	public int getCantidadLibros() {
 		return cantidadLibros;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public String getApellidos() {
+		return apellidos;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+
+	public String getDni() {
+		return dni;
 	}
 
 	public boolean isSocio() {
@@ -46,13 +68,10 @@ public class Persona {
 	public ArrayList<Ejemplar> getLibrosPersona() {
 		return librosPersona;
 	}
-	
-	
-	
-	
 
-	
+	@Override
+	public String toString() {
+		return nombre + " " + apellidos  + "\t" + " | " + dni + "\n";
+	}
 
-	
 }
-
