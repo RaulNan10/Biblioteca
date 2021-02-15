@@ -1,8 +1,9 @@
 package es.ieslavereda.biblioteca.common;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Ejemplar {
+public class Ejemplar implements Serializable{
 
 	private Persona aQuien;
 	private int codigo;

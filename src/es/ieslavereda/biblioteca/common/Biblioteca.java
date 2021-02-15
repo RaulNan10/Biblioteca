@@ -1,9 +1,10 @@
 package es.ieslavereda.biblioteca.common;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Biblioteca {
+public class Biblioteca implements Serializable {
 
 	private String nombre;
 	private ArrayList<Persona> socios = null;

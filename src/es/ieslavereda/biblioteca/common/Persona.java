@@ -1,8 +1,9 @@
 package es.ieslavereda.biblioteca.common;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Persona {
+public class Persona implements Serializable{
 
 	private String nombre;
 	private String apellidos;
